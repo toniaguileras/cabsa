@@ -1,0 +1,17 @@
+es\cabsa\javadevelopers\controller\JungleController.class
+es\cabsa\javadevelopers\utils\URLConstants.class
+es\cabsa\javadevelopers\es\cabsa\javadevelopers\dto\ExampleDTO.class
+es\cabsa\javadevelopers\Application.class
+es\cabsa\javadevelopers\services\AnimalFoodServiceImpl.class
+es\cabsa\javadevelopers\services\AnimalServiceImpl.class
+es\cabsa\javadevelopers\model\AnimalEntity.class
+es\cabsa\javadevelopers\model\mapper\AnimalFoodMapper.class
+es\cabsa\javadevelopers\model\AnimalFood.class
+es\cabsa\javadevelopers\model\ExampleModel.class
+es\cabsa\javadevelopers\repository\AnimalFoodRepository.class
+es\cabsa\javadevelopers\repository\AnimalRepository.class
+es\cabsa\javadevelopers\services\AnimalFoodService.class
+es\cabsa\javadevelopers\es\cabsa\javadevelopers\dto\AnimalFoodBean.class
+es\cabsa\javadevelopers\services\ExampleService.class
+es\cabsa\javadevelopers\services\AnimalService.class
+es\cabsa\javadevelopers\model\FoodEntity.class
