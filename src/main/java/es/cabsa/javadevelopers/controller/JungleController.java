@@ -32,6 +32,10 @@ public class JungleController
 	@Autowired
 	FoodService foodService;
 
+	/**
+	 * Este metodo devuelve una lista con todos los animales de la base de datos
+	 * @return arraylist
+	 */
 	@RequestMapping(method = RequestMethod.GET, value = URLConstants.ANIMAL_ROOT)
 	public ResponseEntity<List<AnimalBean>> findAnimals()
 	{
@@ -39,6 +43,10 @@ public class JungleController
 
 	}
 
+	/**
+	 * Este metodo devuelve una lista con el nombre del animal y con la comida que come 
+	 * @return
+	 */
 	@RequestMapping(method = RequestMethod.GET, value = URLConstants.ANIMAL_ROOT + URLConstants.FOOD_ROOT)
 	public ResponseEntity<List<AnimalFoodBean>> findAnimalsWithItsFood()
 	{
@@ -46,6 +54,11 @@ public class JungleController
 
 	}
 
+	/**
+	 * Este metodo devuelve  un animal buscado por su nombre
+	 * @param name
+	 * @return
+	 */
 	@RequestMapping(method = RequestMethod.GET, value = URLConstants.ANIMAL_ROOT + URLConstants.NAME_PARAM)
 	public ResponseEntity<AnimalBean> findAnimalsByName(@PathVariable("name") String name)
 	{
@@ -53,6 +66,11 @@ public class JungleController
 
 	}
 
+	/**
+	 * Este metodo devuelve un animal encontrado por lo que come
+	 * @param food
+	 * @return
+	 */
 	@RequestMapping(method = RequestMethod.GET, value = URLConstants.FOOD_ROOT + URLConstants.FOOD_PARAM)
 	public ResponseEntity<AnimalBean> findAnimalsByFood(@PathVariable("food") String food)
 	{
@@ -60,6 +78,11 @@ public class JungleController
 
 	}
 
+	/**
+	 * Este metodo devuelve un boolean dependiendo de como haya ido la funcion de añadir una nueva comida
+	 * @param foodEntity
+	 * @return
+	 */
 	@RequestMapping(method = RequestMethod.POST, value = URLConstants.FOOD_ROOT)
 	public ResponseEntity<Boolean> createFood(@RequestBody FoodEntity foodEntity)
 	{
