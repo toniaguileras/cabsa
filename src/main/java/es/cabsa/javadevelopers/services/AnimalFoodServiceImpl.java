@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import es.cabsa.javadevelopers.es.cabsa.javadevelopers.dto.AnimalBean;
 import es.cabsa.javadevelopers.es.cabsa.javadevelopers.dto.AnimalFoodBean;
 import es.cabsa.javadevelopers.model.AnimalEntity;
 import es.cabsa.javadevelopers.model.AnimalFood;
@@ -48,7 +49,7 @@ public class AnimalFoodServiceImpl implements AnimalFoodService
 	}
 
 	@Override
-	public ResponseEntity<AnimalEntity> findAnimalByFood(String food)
+	public ResponseEntity<AnimalBean> findAnimalByFood(String food)
 	{
 		FoodEntity foodEntity = foodRepository.findByName(food);
 		if (foodEntity != null)
@@ -56,19 +57,27 @@ public class AnimalFoodServiceImpl implements AnimalFoodService
 			AnimalFood animalFood = animalFoodRepository.findByFoodId(foodEntity.getId());
 			if (animalFood != null)
 			{
-				return new ResponseEntity<>(animalFood.getAnimal(), HttpStatus.OK);
+				AnimalBean animalBean = new AnimalBean();
+				animalBean.setId(animalFood.getAnimal().getId());
+				animalBean.setLegs(animalFood.getAnimal().getLegs());
+				animalBean.setName(animalFood.getAnimal().getName());
+				return new ResponseEntity<>(animalBean, HttpStatus.OK);
 			}
 		}
 		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
 
 	@Override
-	public ResponseEntity<AnimalEntity> findByName(String name)
+	public ResponseEntity<AnimalBean> findByName(String name)
 	{
 		AnimalEntity animalEntity = animalRepository.findByName(name);
 		if (animalEntity != null)
 		{
-			return new ResponseEntity<>(animalEntity, HttpStatus.OK);
+			AnimalBean animalBean = new AnimalBean();
+			animalBean.setId(animalEntity.getId());
+			animalBean.setName(animalEntity.getName());
+			animalBean.setLegs(animalEntity.getLegs());
+			return new ResponseEntity<>(animalBean, HttpStatus.OK);
 		}
 		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}

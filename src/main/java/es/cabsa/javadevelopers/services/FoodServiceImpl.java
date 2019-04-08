@@ -1,9 +1,11 @@
 package es.cabsa.javadevelopers.services;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import es.cabsa.javadevelopers.model.FoodEntity;
 import es.cabsa.javadevelopers.repository.FoodRepository;
@@ -16,7 +18,7 @@ public class FoodServiceImpl implements FoodService
 	FoodRepository foodRepository;
 
 	@Override
-	public Boolean createFood(FoodEntity foodEntity)
+	public ResponseEntity<Boolean> createFood(FoodEntity foodEntity)
 	{
 		try
 		{
@@ -25,13 +27,13 @@ public class FoodServiceImpl implements FoodService
 			{
 
 				foodRepository.save(foodEntity);
-				return true;
+				return new ResponseEntity<>(true, HttpStatus.OK);
 			}
 		} catch (Exception e)
 		{
-			return false;
+			return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
 		}
-		return false;
+		return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
 
 	}
 
