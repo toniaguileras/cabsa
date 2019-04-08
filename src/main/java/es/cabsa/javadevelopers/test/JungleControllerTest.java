@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 // @WebAppConfiguration
 public class JungleControllerTest
 {
-	// private MockMvc mockMvc;
+//	private MockMvc mockMvc;
 
 //	@Test
 //	public void testFindAnimals()
